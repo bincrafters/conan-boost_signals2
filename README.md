@@ -2,7 +2,7 @@
 
 [Conan.io](https://conan.io) package for [Boost.Signals2](https://github.com/Boostorg/Signals2) project
 
-The packages generated with this **conanfile** can be found in [Bintray](https://bintray.com/bincrafters/conan-public/Boost.Signals2%3Abincrafters).
+The packages generated with this **conanfile** can be found in [Bintray](https://bintray.com/bincrafters/public-conan/Boost.Signals2%3Abincrafters).
 
 ## For Users: Use this package
 
