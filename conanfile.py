@@ -6,7 +6,7 @@ from conans import ConanFile, tools
 
 class BoostSignals2Conan(ConanFile):
     name = "boost_signals2"
-    version = "1.66.0"
+    version = "1.65.1"
     url = "https://github.com/bincrafters/conan-boost_signals2"
     author = "Bincrafters <bincrafters@gmail.com>"
     exports = ["LICENSE.md"]
@@ -17,33 +17,33 @@ class BoostSignals2Conan(ConanFile):
         self.info.header_only()
 
     requires = (
-        "boost_package_tools/1.66.0@bincrafters/testing",
-        "boost_assert/1.66.0@bincrafters/testing",
-        "boost_bind/1.66.0@bincrafters/testing",
-        "boost_concept_check/1.66.0@bincrafters/testing",
-        "boost_config/1.66.0@bincrafters/testing",
-        "boost_core/1.66.0@bincrafters/testing",
-        "boost_function/1.66.0@bincrafters/testing",
-        "boost_iterator/1.66.0@bincrafters/testing",
-        "boost_mpl/1.66.0@bincrafters/testing",
-        "boost_multi_index/1.66.0@bincrafters/testing",
-        "boost_optional/1.66.0@bincrafters/testing",
-        "boost_parameter/1.66.0@bincrafters/testing",
-        "boost_predef/1.66.0@bincrafters/testing",
-        "boost_preprocessor/1.66.0@bincrafters/testing",
-        "boost_smart_ptr/1.66.0@bincrafters/testing",
-        "boost_throw_exception/1.66.0@bincrafters/testing",
-        "boost_tuple/1.66.0@bincrafters/testing",
-        "boost_type_traits/1.66.0@bincrafters/testing",
-        "boost_variant/1.66.0@bincrafters/testing"
+        "boost_package_tools/1.65.1@bincrafters/testing",
+        "boost_assert/1.65.1@bincrafters/testing",
+        "boost_bind/1.65.1@bincrafters/testing",
+        "boost_concept_check/1.65.1@bincrafters/testing",
+        "boost_config/1.65.1@bincrafters/testing",
+        "boost_core/1.65.1@bincrafters/testing",
+        "boost_function/1.65.1@bincrafters/testing",
+        "boost_iterator/1.65.1@bincrafters/testing",
+        "boost_mpl/1.65.1@bincrafters/testing",
+        "boost_multi_index/1.65.1@bincrafters/testing",
+        "boost_optional/1.65.1@bincrafters/testing",
+        "boost_parameter/1.65.1@bincrafters/testing",
+        "boost_predef/1.65.1@bincrafters/testing",
+        "boost_preprocessor/1.65.1@bincrafters/testing",
+        "boost_smart_ptr/1.65.1@bincrafters/testing",
+        "boost_throw_exception/1.65.1@bincrafters/testing",
+        "boost_tuple/1.65.1@bincrafters/testing",
+        "boost_type_traits/1.65.1@bincrafters/testing",
+        "boost_variant/1.65.1@bincrafters/testing"
     )
 
     # BEGIN
 
-    description = "Please visit http://www.boost.org/doc/libs/1_66_0"
+    description = "Please visit http://www.boost.org/doc/libs/1_65_1"
     license = "BSL-1.0"
     short_paths = True
-    build_requires = "boost_generator/1.66.0@bincrafters/testing"
+    build_requires = "boost_generator/1.65.1@bincrafters/testing"
 
     def package_id(self):
         getattr(self, "package_id_additional", lambda:None)()
