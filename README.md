@@ -1,8 +1,8 @@
 ## Package Status
 
-| Bintray | Appveyor | Travis | 
-|---------|-----------|--------|
-|BINTRAY_BADGE_URL|APPVEYOR_BADGE_URL|TRAVIS_BADGE_URL|
+| Bintray | Windows | Linux & macOS | 
+|:--------:|:---------:|:-----------------:|
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/boost_signals2%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/boost_signals2%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-boost_signals2?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-boost-signals)|[![Build Status](https://travis-ci.org/bincrafters/conan-boost_signals2.svg)](https://travis-ci.org/bincrafters/conan-boost_signals2)|
 
 ## Conan.io Information
 

@@ -8,7 +8,8 @@ class BoostSignals2Conan(ConanFile):
     name = "boost_signals2"
     version = "1.66.0"
     url = "https://github.com/bincrafters/conan-boost_signals2"
-
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["signals2"]
     is_header_only = True
 
