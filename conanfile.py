@@ -1,46 +1,74 @@
-from conans import ConanFile, tools, os
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from conans import ConanFile, tools
+
 
 class BoostSignals2Conan(ConanFile):
-    name = "Boost.Signals2"
-    version = "1.64.0"
-    short_paths = True
-    url = "https://github.com/bincrafters/conan-boost-signals2"
-    description = "Please visit http://www.boost.org/doc/libs/1_64_0/libs/libraries.htm"
-    license = "www.boost.org/users/license.html"
+    name = "boost_signals2"
+    version = "1.67.0"
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["signals2"]
-    requires =  "Boost.Assert/1.64.0@bincrafters/testing", \
-                      "Boost.Bind/1.64.0@bincrafters/testing", \
-                      "Boost.Concept_Check/1.64.0@bincrafters/testing", \
-                      "Boost.Config/1.64.0@bincrafters/testing", \
-                      "Boost.Core/1.64.0@bincrafters/testing", \
-                      "Boost.Function/1.64.0@bincrafters/testing", \
-                      "Boost.Iterator/1.64.0@bincrafters/testing", \
-                      "Boost.Mpl/1.64.0@bincrafters/testing", \
-                      "Boost.Multi_Index/1.64.0@bincrafters/testing", \
-                      "Boost.Optional/1.64.0@bincrafters/testing", \
-                      "Boost.Parameter/1.64.0@bincrafters/testing", \
-                      "Boost.Predef/1.64.0@bincrafters/testing", \
-                      "Boost.Preprocessor/1.64.0@bincrafters/testing", \
-                      "Boost.Smart_Ptr/1.64.0@bincrafters/testing", \
-                      "Boost.Throw_Exception/1.64.0@bincrafters/testing", \
-                      "Boost.Tuple/1.64.0@bincrafters/testing", \
-                      "Boost.Type_Traits/1.64.0@bincrafters/testing", \
-                      "Boost.Variant/1.64.0@bincrafters/testing"
+    is_header_only = True
 
-                      #assert1 bind3 config0 core2 function5 iterator5 mpl5 multi_index12 optional5 parameter10 predef0 preprocessor0 smart_ptr4 throw_exception2 tuple4 type_traits3 variant9
-                      
-    def source(self):
-        boostorg_github = "https://github.com/boostorg"
-        archive_name = "boost-" + self.version  
-        for lib_short_name in self.lib_short_names:
-            tools.get("{0}/{1}/archive/{2}.tar.gz"
-                .format(boostorg_github, lib_short_name, archive_name))
-            os.rename(lib_short_name + "-" + archive_name, lib_short_name)
+    def package_id_additional(self):
+        self.info.header_only()
 
-    def package(self):
-        for lib_short_name in self.lib_short_names:
-            include_dir = os.path.join(lib_short_name, "include")
-            self.copy(pattern="*", dst="include", src=include_dir)		
+    requires = (
+        "boost_assert/1.67.0@bincrafters/testing",
+        "boost_bind/1.67.0@bincrafters/testing",
+        "boost_config/1.67.0@bincrafters/testing",
+        "boost_core/1.67.0@bincrafters/testing",
+        "boost_function/1.67.0@bincrafters/testing",
+        "boost_iterator/1.67.0@bincrafters/testing",
+        "boost_mpl/1.67.0@bincrafters/testing",
+        "boost_multi_index/1.67.0@bincrafters/testing",
+        "boost_optional/1.67.0@bincrafters/testing",
+        "boost_package_tools/1.67.0@bincrafters/testing",
+        "boost_parameter/1.67.0@bincrafters/testing",
+        "boost_predef/1.67.0@bincrafters/testing",
+        "boost_preprocessor/1.67.0@bincrafters/testing",
+        "boost_smart_ptr/1.67.0@bincrafters/testing",
+        "boost_throw_exception/1.67.0@bincrafters/testing",
+        "boost_tuple/1.67.0@bincrafters/testing",
+        "boost_type_traits/1.67.0@bincrafters/testing",
+        "boost_variant/1.67.0@bincrafters/testing"
+    )
+
+    # BEGIN
+
+    url = "https://github.com/bincrafters/conan-boost_signals2"
+    description = "Please visit http://www.boost.org/doc/libs/1_67_0"
+    license = "BSL-1.0"
+    short_paths = True
+    build_requires = "boost_generator/1.67.0@bincrafters/testing"
 
     def package_id(self):
-        self.info.header_only()
+        getattr(self, "package_id_additional", lambda:None)()
+
+    def source(self):
+        with tools.pythonpath(self):
+            import boost_package_tools  # pylint: disable=F0401
+            boost_package_tools.source(self)
+        getattr(self, "source_additional", lambda:None)()
+
+    def build(self):
+        with tools.pythonpath(self):
+            import boost_package_tools  # pylint: disable=F0401
+            boost_package_tools.build(self)
+        getattr(self, "build_additional", lambda:None)()
+
+    def package(self):
+        with tools.pythonpath(self):
+            import boost_package_tools  # pylint: disable=F0401
+            boost_package_tools.package(self)
+        getattr(self, "package_additional", lambda:None)()
+
+    def package_info(self):
+        with tools.pythonpath(self):
+            import boost_package_tools  # pylint: disable=F0401
+            boost_package_tools.package_info(self)
+        getattr(self, "package_info_additional", lambda:None)()
+
+    # END
