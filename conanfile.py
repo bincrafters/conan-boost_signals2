@@ -8,6 +8,7 @@ base = python_requires("boost_base/1.67.0@bincrafters/testing")
 
 class BoostSignals2Conan(base.BoostBaseConan):
     name = "boost_signals2"
+    version = "1.67.0"
     url = "https://github.com/bincrafters/conan-boost_signals2"
     lib_short_names = ["signals2"]
     header_only_libs = ["signals2"]
